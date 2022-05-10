@@ -1,0 +1,336 @@
+﻿	body{
+		font-family: "Trebuchet MS", sans-serif;
+		margin: 50px;
+		overflow-y: visible;
+	}
+	h1 {
+		display: inline-block;
+	}	
+	.clear {
+		clear: both;
+	}	
+	#edit_message {
+		float: right;
+		display: inline-block;
+    font-weight: 600;
+    color: #434343;
+    font-size:17px;		
+	}
+	.error1 {
+    color: orangered;
+	}
+	.success1 {
+    color: green;
+	}	
+	.currency {
+    font-weight: 600;
+    color: red;
+	}	
+	.bold {
+    font-weight: 600;
+	}		
+	.robocop{
+    font-family: cursive;
+    color: crimson;
+	}	
+	.payment{
+		color: blue;
+		font-weight: 600;
+	}
+	.balance{
+		color: red;
+		font-weight: 600;		
+	}
+			
+.bocacho_waiting {
+	 font-size: 16PX;
+    font-weight: 600;
+    color: red;
+    background: white !important;
+}
+.bocacho_special {
+font-size: 16PX;
+    font-weight: 600;
+    color: red;
+    background: orange !important;
+}
+.bocacho_not_wood_green {
+font-size: 16PX;
+    font-weight: 600;
+    color: #e8d1d1;
+    background: black !important;
+}
+.bocacho_wood_green {
+font-size: 16PX;
+    font-weight: 600;
+    color: red;
+    background: #92ea3d !important;
+}
+.bocacho_elapsed {
+font-size: 16PX;
+    font-weight: 600;
+    color: white;
+    background: red !important;
+}
+	.menu_container {
+		display: inline-block;
+		float: left;
+		margin-right: 200px;
+	}	
+	a {
+		display: inline-block;
+		margin: 7px 0;
+		clear: both;
+	}
+	.quarter	{
+		display: inline-block;
+		float: left;
+		margin-right:50px;	
+	}
+	.form_father{
+		margin: 10px 0;	    clear: both;
+	}
+input#license_no { 
+    text-transform: uppercase;
+}	
+.license_no input { 
+    text-transform: uppercase;
+}	
+.address_line_1 input, .notes input {
+    white-space: normal;
+}
+img.ui-datepicker-trigger{
+margin-top:-11px;
+}
+	label {
+		display: block;
+	}
+	.form_father select {
+		padding: 5px;
+		min-width: 250px;	
+	}		
+	.form_father input {
+		padding: 5px;
+		min-width: 250px;	    
+	}	
+	.form_father textarea {
+		padding: 5px;
+		min-width: 250px;	
+	}	
+	.form_father button {
+		margin-top: 10px;
+	}		
+	.ok {
+    padding: .4em 1em;
+    display: inline-block;
+    position: relative;
+    line-height: normal;
+    margin-right: .1em;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: visible;
+	font-family: segoe ui,Arial,sans-serif;
+    font-size: 1.1em;
+    border: 1px solid #327E04;
+    background: #459e00 url(images/ui-bg_highlight-hard_15_459e00_1x100.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none; 
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;  
+	 border-top-right-radius: 6px; 
+	 border-top-left-radius: 6px;	 
+	}    
+
+	.nok {
+    padding: .4em 1em;
+    display: inline-block;
+    position: relative;
+    line-height: normal;
+    margin-right: .1em;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: visible;
+	font-family: segoe ui,Arial,sans-serif;
+    font-size: 1.1em;
+    border: 1px solid #fff;
+    background: orangered;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none; 
+    border-bottom-right-radius: 6px;   
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 6px;    
+	 border-top-left-radius: 6px;    
+	} 
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  white-space: nowrap;
+}	
+th, td {
+border: 1px solid #ddd;
+padding: 10px;
+}	
+table.oops {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+  white-space: nowrap;
+}	
+table.oops th, table.oops td {
+border: 1px solid #ddd;
+padding: 5px 1px;
+}	
+table.hoho {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+  white-space: nowrap;
+}	
+table.hoho th, table.hoho td {
+border: 1px solid #ddd;
+padding: 5px 1px;
+}	
+td a {
+font-size: 16px;
+font-weight: 600;
+text-decoration: none;
+}	
+td a.first {
+padding-right: 20px;
+
+}	
+tr:nth-child(even){
+/*-color: #f2f2f2;*/
+}
+
+tr:hover {
+	cursor: pointer;
+	background-color: #ddd;
+}
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+	.demoHeaders {
+		margin-top: 2em;
+	}
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	select {
+		width: 200px;
+	}
+div.pagination {
+	padding: 3px;
+	margin: 3px;
+	margin-top: 15px;
+	font-size: 21px;
+}
+
+div.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+	border: 1px solid #AAAADD;
+	
+	text-decoration: none; /* no underline */
+	color: #000099;
+}
+div.pagination a:hover, div.pagination a:active {
+	border: 1px solid #000099;
+
+	color: #000;
+}
+div.pagination span.current {
+	padding: 2px 5px 2px 5px;
+	margin: 2px;
+		border: 1px solid #000099;
+		
+		font-weight: bold;
+		background-color: #000099;
+		color: #FFF;
+	}
+div.pagination span.disabled {
+		padding: 2px 5px 2px 5px;
+		margin: 2px;
+		border: 1px solid #EEE;
+	
+		color: #DDD;
+	}	
+	
+table th.resizing {
+    cursor: col-resize;
+}
+
+.edit input, .edit textarea {
+	display: inline-block;
+}
+
+
+.taramba_first {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    /* width: 50%; */
+    line-height: 36px;
+    padding-left: 5px;
+}
+
+.taramba_second {
+    display: inline-block;
+    float: right;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+
+.taramba_second a:hover {
+    opacity: 0.75;
+}
+ #searchresult{ display:none; position:relative; min-height:50px;}
+ .resultoverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  .resultoverlay img{ width:25px; height:auto}
+
+@media screen and (max-width: 500px) {
+	.menu_container {
+		 margin-right: 0px;
+	}
+	body {
+		 margin: 20px 25px;
+	}	
+}
+	

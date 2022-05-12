@@ -267,8 +267,8 @@ $bank_id = $_GET['ID'];
         }
     }
     ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://malsup.github.io/jquery.form.js"></script>
+    <script src="src/jquery.min.js"></script>
+    <script src="src/jquery-form.min.js"></script>
 
 
     <script>

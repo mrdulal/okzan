@@ -19,33 +19,33 @@ $bank_id = $_GET['ID'];
 
 
     <?php
-	if (!isset($_GET['pi']) || $_GET['pi'] == '') {
+    if (!isset($_GET['pi']) || $_GET['pi'] == '') {
 
-		echo '<div class="nok">There is something wrong with your Pupil ID. 
+        echo '<div class="nok">There is something wrong with your Pupil ID. 
 	<br>
 	Please go back and click on edit link again.
 	</div>';
-	} else {
+    } else {
 
 
-		$query = 'SELECT * FROM pupils WHERE ID  = "' . mysqli_real_escape_string($conn, $_GET['pi']) . '" LIMIT 1';
+        $query = 'SELECT * FROM pupils WHERE ID  = "' . mysqli_real_escape_string($conn, $_GET['pi']) . '" LIMIT 1';
 
-		$result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+        $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
-		if (mysqli_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
 
-			while ($row = mysqli_fetch_array($result)) {
+            while ($row = mysqli_fetch_array($result)) {
 
-				$queryb = 'SELECT * FROM bank WHERE ID  = "' . mysqli_real_escape_string($conn, $_GET['ID']) . '" LIMIT 1';
+                $queryb = 'SELECT * FROM bank WHERE ID  = "' . mysqli_real_escape_string($conn, $_GET['ID']) . '" LIMIT 1';
 
-				$resultb = mysqli_query($conn, $queryb) or die(mysqli_error($conn));
+                $resultb = mysqli_query($conn, $queryb) or die(mysqli_error($conn));
 
-				if (mysqli_num_rows($resultb) > 0) {
+                if (mysqli_num_rows($resultb) > 0) {
 
-					while ($rowb = mysqli_fetch_array($resultb)) {
+                    while ($rowb = mysqli_fetch_array($resultb)) {
 
 
-	?>
+    ?>
     <div class="button_father">
         <!--<a href = "specific-pupils-lists.php">-->
         <!--	<button class="button">Back to specific-pupils-lists</button>-->
@@ -54,9 +54,9 @@ $bank_id = $_GET['ID'];
 
     <h1>Editing Pupil Result With ID <?php echo $_GET['pi']; ?></h1>
 
-    <form method="post" action="edit-results-submit.php">
+    <form method="post" action="edit-results-submit.php" id="myCoolForm">
 
-        <input onclick="myFunction()" type="hidden" id="ID" name="ID" value="<?php echo $_GET['pi']; ?>">
+        <input type="hidden" class="pupilid" id="ID" name="ID" value="<?php echo $_GET['pi']; ?>">
 
         <div class="form_father">
             <label for="ID">ID</label>
@@ -252,36 +252,48 @@ $bank_id = $_GET['ID'];
     </form>
 
 
-    <script>
-    function myFunction() {
-        /* Get the text field */
-        var copyText = document.getElementById("ID");
 
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-        /* Copy the text inside the text field */
-        navigator.clipboard.writeText(copyText.value);
-
-        /* Alert the copied text */
-        alert("Copied the text: " + copyText.value);
-    }
-    </script>
     <?php
 
-					}
-				}
-			}
-		} else {
+                    }
+                }
+            }
+        } else {
 
-			echo '<div class="nok">There is not existing client with ID ' . $_GET['pi'] . ' .
+            echo '<div class="nok">There is not existing client with ID ' . $_GET['pi'] . ' .
 			<br>
 			Please go back and try to click on edit link again.
 			</div>';
-		}
-	}
+        }
+    }
+    ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://malsup.github.io/jquery.form.js"></script>
 
-	include('footer.php');
 
-	?>
+    <script>
+    //ajax call with update
+    jQuery(document).ready(function($) {
+        function copyToClipboard(text) {
+            var sampleTextarea = document.createElement("textarea");
+            document.body.appendChild(sampleTextarea);
+            sampleTextarea.value = text; //save main text in it
+            sampleTextarea.select(); //select textarea contenrs
+            document.execCommand("copy");
+            document.body.removeChild(sampleTextarea);
+        }
+
+        $('#myCoolForm').ajaxForm(function() {
+            //copy the id to clipboard 
+            var copyText = document.getElementById("ID");
+            copyToClipboard(copyText.value);
+            alert('Form submitted successfully.');
+        });
+
+    });
+    </script>
+
+    <?php
+    include('footer.php');
+
+    ?>

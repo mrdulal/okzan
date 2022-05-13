@@ -4,17 +4,17 @@ include('header.php');
 
 include('db_conn.php');
 if (isset($_GET["no-result"]) && !empty($_GET['ID'])) {
-	$queryb = 'SELECT * FROM bank WHERE ID  = "' . mysqli_real_escape_string($conn, $_GET['ID']) . '" LIMIT 1';
-	$resultb = mysqli_query($conn, $queryb) or die(mysqli_error($conn));
-	if (mysqli_num_rows($resultb) > 0) {
-		$k = mysqli_fetch_array($resultb);
-		$bankID  = $k['ID'];
-		$fn  = $k['First Name'];
-		$ln  = $k['Last Name'];
-		$license_no  = $k['License No'];
-		$app = $k['App Ref'];
-		$obs = $k['OBS'];
-	}
+    $queryb = 'SELECT * FROM bank WHERE ID  = "' . mysqli_real_escape_string($conn, $_GET['ID']) . '" LIMIT 1';
+    $resultb = mysqli_query($conn, $queryb) or die(mysqli_error($conn));
+    if (mysqli_num_rows($resultb) > 0) {
+        $k = mysqli_fetch_array($resultb);
+        $bankID  = $k['ID'];
+        $fn  = $k['First Name'];
+        $ln  = $k['Last Name'];
+        $license_no  = $k['License No'];
+        $app = $k['App Ref'];
+        $obs = $k['OBS'];
+    }
 }
 ?>
 
@@ -31,7 +31,20 @@ if (isset($_GET["no-result"]) && !empty($_GET['ID'])) {
 
     <h1>Add New Pupil</h1>
 
+    <?php if (!empty($_GET['id'])) { ?>
+    <div class="form_father">
+        <label for="bankID" style="padding-bottom:10px;">Copy the Previous Saved Row ID</label>
+        <input type="text" id="lastinsertedrowid" value="<?php echo $_GET['id']; ?>">
+        <br>
+        <button id="tigger_click" onclick="myFunction()" class="button">Copy Recent Inserted Row ID</button>
+    </div>
+    <div style="padding-bottom:20px; padding-top:20px;"></div>
+    <?php } ?>
+
+
+
     <form method="post" action="new-pupil-results-submit.php">
+
 
         <div class="form_father">
             <label for="bankID">Bank ID</label>
@@ -436,9 +449,41 @@ if (isset($_GET["no-result"]) && !empty($_GET['ID'])) {
 
     </form>
 
+
+
+
+
+
+    <script src="src/jquery.min.js"></script>
+
+    <script>
+    //auto tigger button on change
+    function myFunction() {
+        /* Get the text field */
+        var copyText = document.getElementById("lastinsertedrowid");
+        /* Select the text field */
+        copyText.select();
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(copyText.value);
+        /* Alert the copied text */
+        alert("Copied the ID: " + copyText.value);
+    }
+
+    //tigger click functioin on button click
+    $(document).ready(function() {
+        $("#tigger_click").trigger('click');
+
+
+        //click on submit button remove lastinsertedrowid value
+        $("#submit").click(function() {
+            $("#lastinsertedrowid").val('');
+        });
+
+    });
+    </script>
     <?php
 
 
-	include('footer.php');
+    include('footer.php');
 
-	?>
+    ?>

@@ -1,5 +1,8 @@
 ﻿<?php
 
+// require clipboard function in php 
+// require 'Clipboard.php';
+/////////////////////////////
 include('header.php');
 
 include('db_conn.php');
@@ -9,6 +12,7 @@ if (isset($_POST['submit'])) {
 	if (1 == 1) {
 
 		$query_clients_id = 'SELECT * FROM clients WHERE ID = "' . mysqli_real_escape_string($conn, $_POST['clients_id']) . '"';
+
 
 		$result_clients_id = mysqli_query($conn, $query_clients_id) or die(mysqli_error($conn));
 
@@ -20,39 +24,40 @@ if (isset($_POST['submit'])) {
 
 			$result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
+
+
+
+
+			//get current ID after save
+			$query_id = 'SELECT * FROM pupils WHERE ID = "' . mysqli_insert_id($conn) . '"';
+
+			$result_id = mysqli_query($conn, $query_id) or die(mysqli_error($conn));
+
+			$row_id = mysqli_fetch_array($result_id);
+
+			echo "<pre>";
+			// var_dump($row_id["ID"]);
+
+
+
 			mysqli_close($conn);
 
+
+
+			// die;
 			echo '<div class="ok">You successfully added the new pupil.<br>
 			You will be automatically redirected to Bank page in 500 miliseconds.</div>';
-			if (!empty($insert_id)) {
-?>
-<script type="text/javascript">
-copyToClipboard("<?php echo $insert_id; ?>");
 
-function copyToClipboard(text) {
-    if (navigator.clipboard) { // default: modern asynchronous API
-        return navigator.clipboard.writeText(text);
-    } else if (window.clipboardData && window.clipboardData.setData) { // for IE11
-        window.clipboardData.setData('Text', text);
-        return Promise.resolve();
-    } else {
-        // workaround: create dummy input
-        const input = h('input', {
-            type: 'text'
-        });
-        input.value = text;
-        document.body.append(input);
-        input.focus();
-        input.select();
-        document.execCommand('copy');
-        input.remove();
-        return Promise.resolve();
-    }
-}
-</script>
-<?php
+			//get current id after saved
+			$insert_id = $row_id["ID"];
+
+			// copy insert_id 
+
+			if (!empty($insert_id)) {
+				// return to new-pupil-results.php with insert_id
+				header("Refresh:0.5; url=new-pupil-results.php?id=" . $insert_id);
 			}
-			echo '<script>setTimeout(function(){ window.location.replace("bank.php");}, 500);</script>';
+			// echo '<script>setTimeout(function(){ window.location.replace("bank.php");}, 500);</script>';
 		} else {
 
 			echo '<div class="nok">Does not exist client with number ' . $_POST['clients_id'] . '.</div>';
@@ -73,4 +78,3 @@ function rem($str)
 	$result = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $str);
 	return $result;
 }
-?>

@@ -33,10 +33,10 @@ if (isset($_GET["no-result"]) && !empty($_GET['ID'])) {
 
     <?php if (!empty($_GET['id'])) { ?>
     <div class="form_father">
-        <label for="bankID" style="padding-bottom:10px;">Copy the Previous Saved Row ID</label>
-        <input type="text" id="lastinsertedrowid" value="<?php echo $_GET['id']; ?>">
+        <!-- <label for="bankID" style="padding-bottom:10px;">Copied the Previous Saved Row ID</label> -->
+        <input type="hidden" id="lastinsertedrowid" value="<?php echo $_GET['id']; ?>">
         <br>
-        <button id="tigger_click" onclick="myFunction()" class="button">Copy Recent Inserted Row ID</button>
+        <!-- <button id="tigger_click" onclick="myFunction()" class="button">Copied Recent Inserted Row ID</button> -->
     </div>
     <div style="padding-bottom:20px; padding-top:20px;"></div>
     <?php } ?>
@@ -458,27 +458,39 @@ if (isset($_GET["no-result"]) && !empty($_GET['ID'])) {
 
     <script>
     //auto tigger button on change
-    function myFunction() {
-        /* Get the text field */
-        var copyText = document.getElementById("lastinsertedrowid");
-        /* Select the text field */
-        copyText.select();
-        /* Copy the text inside the text field */
-        navigator.clipboard.writeText(copyText.value);
-        /* Alert the copied text */
-        alert("Copied the ID: " + copyText.value);
-    }
+    // function myFunction() {
+    //     /* Get the text field */
+    //     var copyText = document.getElementById("lastinsertedrowid");
+    //     /* Select the text field */
+    //     copyText.select();
+    //     /* Copy the text inside the text field */
+    //     navigator.clipboard.writeText(copyText.value);
+    //     /* Alert the copied text */
+    //     alert("Copied the ID: " + copyText.value);
+    // }
 
     //tigger click functioin on button click
     $(document).ready(function() {
-        $("#tigger_click").trigger('click');
+        // $("#tigger_click").trigger('click');
 
 
-        //click on submit button remove lastinsertedrowid value
-        $("#submit").click(function() {
-            $("#lastinsertedrowid").val('');
-        });
+        // //click on submit button remove lastinsertedrowid value
+        // $("#submit").click(function() {
+        //     $("#lastinsertedrowid").val('');
+        // });
 
+
+        var copyText = document.getElementById("lastinsertedrowid");
+        if (copyText.value != "") {
+
+
+            /* Select the text field */
+            copyText.select();
+            /* Copy the text inside the text field */
+            navigator.clipboard.writeText(copyText.value);
+            /* Alert the copied text */
+            alert("Copied the ID: " + copyText.value);
+        }
     });
     </script>
     <?php

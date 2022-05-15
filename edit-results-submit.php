@@ -1,17 +1,21 @@
 <?php
 
-include('header.php');
+// include('header.php');
 
 include('db_conn.php');
 
-if (isset($_POST['submit'])) {
-
+// if (isset($_POST['submit'])) {
 
 
 	//  echo $_POST['ID'];
 	//  die();
 	if (1 == 1) {
+	// echo "<pre>";
+	// var_dump($_POST);
 
+	// die;
+
+	
 		//$query_clients_id = 'SELECT * FROM clients WHERE ID = "'.mysqli_real_escape_string($conn, $_POST['clients_id']).'"';
 
 		//$result_clients_id = mysqli_query($conn, $query_clients_id) or die(mysqli_error($conn));
@@ -55,18 +59,18 @@ if (isset($_POST['submit'])) {
 		$result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
 
-		if (mysqli_affected_rows($conn) > 0) {
+		// if (mysqli_affected_rows($conn) > 0) {
 
-			echo '<div class="ok">You successfully updated your pupil.<br>
-			You will be automtically redirected to Bank in 200 milliseconds.</div>';
+		// 	echo '<div class="ok">You successfully updated your pupil.<br>
+		// 	You will be automtically redirected to Bank in 200 milliseconds.</div>';
 
-			echo '<script>setTimeout(function(){ window.location.replace("bank.php");}, 200);</script>';
+		// 	echo '<script>setTimeout(function(){ window.location.replace("bank.php");}, 200);</script>';
 
-			mysqli_close($conn);
-		} else {
+		// 	mysqli_close($conn);
+		// } else {
 
-			echo '<div class="nok">Update is unsuccessful.</div>';
-		}
+		// 	echo '<div class="nok">Update is unsuccessful.</div>';
+		// }
 
 		//}
 		//else{
@@ -79,12 +83,12 @@ if (isset($_POST['submit'])) {
 
 		echo '<div class="nok">All fields are required. Please go back and fill them.</div>';
 	}
-} else {
+// } else {
 
-	echo '<div class="nok">There is something wrong. Please try to fill the form again.</div>';
-}
+// 	echo '<div class="nok">There is something wrong. Please try to fill the form again.</div>';
+// }
 
-include('footer.php');
+// include('footer.php');
 
 function rem($str)
 {

@@ -457,28 +457,9 @@ if (isset($_GET["no-result"]) && !empty($_GET['ID'])) {
     <script src="src/jquery.min.js"></script>
 
     <script>
-    //auto tigger button on change
-    // function myFunction() {
-    //     /* Get the text field */
-    //     var copyText = document.getElementById("lastinsertedrowid");
-    //     /* Select the text field */
-    //     copyText.select();
-    //     /* Copy the text inside the text field */
-    //     navigator.clipboard.writeText(copyText.value);
-    //     /* Alert the copied text */
-    //     alert("Copied the ID: " + copyText.value);
-    // }
 
     //tigger click functioin on button click
     $(document).ready(function() {
-        // $("#tigger_click").trigger('click');
-
-
-        // //click on submit button remove lastinsertedrowid value
-        // $("#submit").click(function() {
-        //     $("#lastinsertedrowid").val('');
-        // });
-
 
         var copyText = document.getElementById("lastinsertedrowid");
         if (copyText.value != "") {
